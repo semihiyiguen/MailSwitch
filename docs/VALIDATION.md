@@ -20,3 +20,8 @@ screenshots for private information, and scan the exact files being published.
 The public record deliberately omits workstation usernames, paths, private logs
 and real email samples. Review findings are point-in-time evidence, not a
 zero-defect guarantee.
+
+A user reported successful use on a second Mac, with a Gatekeeper approval
+required. This is user-reported acceptance, not a controlled notarization test.
+The notarization script has shell/guard checks; its Apple submission path awaits
+a valid Developer ID Application certificate and local notarization credentials.

@@ -52,4 +52,4 @@ jobs:
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
-          gh release create "$RELEASE_TAG" release-assets/* --verify-tag --title "MailSwitch $RELEASE_TAG" --notes "Native macOS email-default chooser. Download MailSwitch.app.zip or inspect the source archive. Universal Intel and Apple Silicon build. Ad-hoc signed; not Developer ID signed or notarized. See README and docs/VALIDATION.md for compatibility and test scope."
+          gh release create "$RELEASE_TAG" release-assets/* --verify-tag --prerelease --title "MailSwitch $RELEASE_TAG" --notes "Native macOS email-default chooser. Download MailSwitch.app.zip or inspect the source archive. Universal Intel and Apple Silicon build. Ad-hoc signed; not Developer ID signed or notarized. See README and docs/VALIDATION.md for compatibility and test scope."
