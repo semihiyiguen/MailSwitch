@@ -2,7 +2,7 @@
 
 Suggested description:
 
-> Change your default email app on macOS without signing in to Apple Mail. Native, open-source chooser for mailto links and supported EML, MSG and email-template files. Intel + Apple Silicon.
+> Switch your Mac’s default email app in a few clicks. Set email links and saved messages to the apps you choose. Native, private and open source.
 
 Suggested topics:
 

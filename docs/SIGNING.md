@@ -44,3 +44,18 @@ Apple signing credentials or override macOS policy.
 
 [Apple: Developer ID](https://developer.apple.com/developer-id/)
 · [Apple: notarization](https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution)
+
+## Membership cost and alternatives
+
+Apple lists Developer ID and notarization as benefits of the Apple Developer
+Program: USD 99 per membership year, or local currency where available. An
+existing authorized organization membership can be used. Open-source status
+alone does not qualify for a fee waiver; eligibility is limited to certain
+nonprofit, educational and government organizations. See [membership comparison](https://developer.apple.com/support/compare-memberships/)
+and [fee waivers](https://developer.apple.com/help/account/membership/fee-waivers).
+
+A self-signed certificate is not a replacement for Apple Developer ID trust.
+Building from source or using an approved internal management deployment are
+different distribution options; neither provides universally trusted public ZIP
+downloads. Contact Apple Developer Support if enrollment or certificate issuance
+fails; the ordinary workflow does not require negotiating an exception.

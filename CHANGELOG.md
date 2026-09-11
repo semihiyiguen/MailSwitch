@@ -2,6 +2,8 @@
 
 ## 1.2.0
 
+- Distinct switch-and-arrows icon to distinguish the utility from an email client.
+
 - English native macOS interface for email links and saved email files.
 - Separate current defaults for mailto and .eml; per-format controls for .eml,
   .emlx, .msg, .mime, .mme, .oft and .emltpl.
