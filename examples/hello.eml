@@ -1,0 +1,11 @@
+From: MailSwitch Demo <sender@example.invalid>
+To: Local Test <recipient@example.invalid>
+Subject: MailSwitch local test
+Date: Thu, 10 Sep 2026 12:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+This is a synthetic local email file for testing your default app.
+No real account, personal message, attachment or remote image is included.
+Opening this file does not send a message.

@@ -1,0 +1,55 @@
+name: Build and test
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Behavioral and platform read-only checks
+        run: bash scripts/test.sh
+      - name: XCTest suite
+        run: swift test
+      - name: Universal app and publication checks
+        run: bash scripts/build.sh
+      - name: Source archive
+        run: python3 scripts/privacy_check.py --archive
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: MailSwitch
+          path: |
+            dist/MailSwitch.app.zip
+            dist/MailSwitch-source.zip
+            dist/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 14
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: MailSwitch
+          path: release-assets
+      - name: Publish tested release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" release-assets/* --verify-tag --title "MailSwitch $RELEASE_TAG" --notes "Native macOS email-default chooser. Download MailSwitch.app.zip or inspect the source archive. Universal Intel and Apple Silicon build. Ad-hoc signed; not Developer ID signed or notarized. See README and docs/VALIDATION.md for compatibility and test scope."
