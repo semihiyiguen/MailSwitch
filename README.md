@@ -20,6 +20,11 @@ open email links while Apple Mail still opens `.eml` files. MailSwitch handles b
 
 **Download status:** current development builds are ad-hoc signed, not yet
 Apple Developer ID signed or notarized. macOS may block their first launch.
+If you trust the downloaded release and macOS blocks it, go to **System Settings
+→ Privacy & Security**, scroll to **Security**, then click **Open Anyway** and
+confirm. macOS may ask for your login password; managed Macs may require an
+administrator or IT approval. This is a one-time exception for the app, not a
+request for access to your mail. [Apple's instructions](https://support.apple.com/en-us/102445).
 Do not disable Gatekeeper. A notarized package will be identified explicitly in
 its release notes. [Signing and distribution](docs/SIGNING.md).
 
